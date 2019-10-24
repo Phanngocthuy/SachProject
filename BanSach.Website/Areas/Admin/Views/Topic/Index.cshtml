@@ -1,0 +1,38 @@
+﻿@using BanSach.Model
+@model IPagedList<Topic>
+@using PagedList
+@using PagedList.Mvc
+@using BanSach.Common
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Topic search = ViewBag.Topic as Topic;
+}
+
+<h2>Danh sách chủ đề</h2>
+<hr />
+
+<form action="" method="get">
+    <input type="text" name="Topic_Name" id="Topic_Name" placeholder="Nhập tên chủ đề" />
+    <input type="button" value="Tìm Kiếm" class="btn btn-primary" />
+</form>
+<table class="table table-bordered">
+    <thead style="background-color: red; color: white">
+        <tr>
+            <th>IsActive</th>
+            <th>Tên chủ đề</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Topic_Name</td>
+                <td>@item.IsActive</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", "TaiKhoan", search.SetInfoPaging(page)))

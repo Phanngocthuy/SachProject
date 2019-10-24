@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="20b6d6c45f3d40cba5357c8167d3c151" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyBanSachModel.Topic" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanSachModel.Account" Width="1.5" PointX="3.75" PointY="11.75" />
+        <EntityTypeShape EntityType="QuanLyBanSachModel.Import" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="QuanLyBanSachModel.ImportDetail" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="QuanLyBanSachModel.Order" Width="1.5" PointX="6" PointY="10.125" />
+        <EntityTypeShape EntityType="QuanLyBanSachModel.OrderDetail" Width="1.5" PointX="8.25" PointY="1.375" />
+        <EntityTypeShape EntityType="QuanLyBanSachModel.Payment" Width="1.5" PointX="3.75" PointY="9.25" />
+        <EntityTypeShape EntityType="QuanLyBanSachModel.Product" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyBanSachModel.Supplier" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="QuanLyBanSachModel.sysdiagram" Width="1.5" PointX="5.375" PointY="5.5" />
+        <AssociationConnector Association="QuanLyBanSachModel.FK_Order_Account" />
+        <AssociationConnector Association="QuanLyBanSachModel.FK_ImportDetail_Import" />
+        <AssociationConnector Association="QuanLyBanSachModel.FK_ImportDetail_Product" />
+        <AssociationConnector Association="QuanLyBanSachModel.FK_Order_Payment" />
+        <AssociationConnector Association="QuanLyBanSachModel.FK_OrderDetail_Order" />
+        <AssociationConnector Association="QuanLyBanSachModel.FK_OrderDetail_Product" />
+        <AssociationConnector Association="QuanLyBanSachModel.FK_Product_Supplier" />
+        <AssociationConnector Association="QuanLyBanSachModel.FK_Product_Type" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

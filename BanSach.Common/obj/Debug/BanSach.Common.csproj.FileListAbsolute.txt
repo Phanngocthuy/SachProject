@@ -1,0 +1,6 @@
+E:\Project\BanSach.Website\BanSach.Common\bin\Debug\BanSach.Common.dll
+E:\Project\BanSach.Website\BanSach.Common\bin\Debug\BanSach.Common.pdb
+E:\Project\BanSach.Website\BanSach.Common\obj\Debug\BanSach.Common.csprojAssemblyReference.cache
+E:\Project\BanSach.Website\BanSach.Common\obj\Debug\BanSach.Common.csproj.CoreCompileInputs.cache
+E:\Project\BanSach.Website\BanSach.Common\obj\Debug\BanSach.Common.dll
+E:\Project\BanSach.Website\BanSach.Common\obj\Debug\BanSach.Common.pdb

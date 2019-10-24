@@ -1,0 +1,12 @@
+E:\Project\BanSach.Website\BanSach.Model\bin\Debug\BanSach.Model.dll.config
+E:\Project\BanSach.Website\BanSach.Model\bin\Debug\BanSach.Model.dll
+E:\Project\BanSach.Website\BanSach.Model\bin\Debug\BanSach.Model.pdb
+E:\Project\BanSach.Website\BanSach.Model\bin\Debug\EntityFramework.dll
+E:\Project\BanSach.Website\BanSach.Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\BanSach.Website\BanSach.Model\bin\Debug\EntityFramework.xml
+E:\Project\BanSach.Website\BanSach.Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\BanSach.Website\BanSach.Model\obj\Debug\BanSach.Model.csprojAssemblyReference.cache
+E:\Project\BanSach.Website\BanSach.Model\obj\Debug\BanSach.Model.csproj.CoreCompileInputs.cache
+E:\Project\BanSach.Website\BanSach.Model\obj\Debug\BanSach.Model.csproj.CopyComplete
+E:\Project\BanSach.Website\BanSach.Model\obj\Debug\BanSach.Model.dll
+E:\Project\BanSach.Website\BanSach.Model\obj\Debug\BanSach.Model.pdb

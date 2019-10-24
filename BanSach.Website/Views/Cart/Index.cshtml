@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--================Shopping Cart Area =================-->
+<section class="shopping_cart_area p_100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="cart_product_list">
+                    <h3 class="cart_single_title">GIỎ HÀNG</h3>
+                    <div class="table-responsive-md">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Sản Phẩm</th>
+                                    <th scope="col">Giá Tiền</th>
+                                    <th scope="col">Số Lượng</th>
+                                    <th scope="col">Tổng Tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <img src="~/img/icon/close-icon.png" alt="">
+                                    </th>
+                                    <td>
+                                        <div class="media">
+                                            <div class="d-flex">
+                                                <img src="~/img/product/cart-product/cart-1.jpg" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4>Mens Nike Bag</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><p>$150</p></td>
+                                    <td><input type="text" placeholder="01"></td>
+                                    <td><p>$150</p></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <img src="~/img/icon/close-icon.png" alt="">
+                                    </th>
+                                    <td>
+                                        <div class="media">
+                                            <div class="d-flex">
+                                                <img src="~/img/product/cart-product/cart-2.jpg" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <h4>Mens Nike Bag</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><p>$150</p></td>
+                                    <td><input type="text" placeholder="01"></td>
+                                    <td><p>$250</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-lg-4">
+                <div class="total_amount_area">                   
+                    <div class="cart_totals">
+                        <h3 class="cart_single_title"></h3>
+                        <div class="cart_total_inner">
+                            <ul>
+                                <li><a href="#"><span>TỔNG SỐ SẢN PHẨM</span> 2</a></li>
+                                <li><a href="#"><span>SỐ TIỀN GIẢM</span> 0</a></li>
+                                <li><a href="#"><span>TỔNG SỐ TIỀN </span> $400.00</a></li>
+                            </ul>
+                        </div>
+                        <button type="submit" class="btn btn-primary update_btn">CẬP NHẬT</button>
+                        <button type="submit" class="btn btn-primary checkout_btn">TIẾN HÀNH THANH TOÁN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Shopping Cart Area =================-->

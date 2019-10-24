@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyBanSachModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="TopicID" />
+    </Key>
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="TopicID" Type="Int32" Nullable="false" />
+    <Property Name="Topic_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="QuanLyBanSachModel.FK_Product_Type" FromRole="Topic" ToRole="Product" />
+  </EntityType>
+  <EntityContainer Name="QuanLyBanSachEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Topics" EntityType="Self.Topic" />
+    <EntitySet Name="Accounts" EntityType="QuanLyBanSachModel.Account" />
+    <EntitySet Name="Imports" EntityType="QuanLyBanSachModel.Import" />
+    <EntitySet Name="ImportDetails" EntityType="QuanLyBanSachModel.ImportDetail" />
+    <EntitySet Name="Orders" EntityType="QuanLyBanSachModel.Order" />
+    <EntitySet Name="OrderDetails" EntityType="QuanLyBanSachModel.OrderDetail" />
+    <EntitySet Name="Payments" EntityType="QuanLyBanSachModel.Payment" />
+    <EntitySet Name="Products" EntityType="QuanLyBanSachModel.Product" />
+    <EntitySet Name="Suppliers" EntityType="QuanLyBanSachModel.Supplier" />
+    <EntitySet Name="sysdiagrams" EntityType="QuanLyBanSachModel.sysdiagram" />
+    <AssociationSet Name="FK_Order_Account" Association="QuanLyBanSachModel.FK_Order_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImportDetail_Import" Association="QuanLyBanSachModel.FK_ImportDetail_Import">
+      <End Role="Import" EntitySet="Imports" />
+      <End Role="ImportDetail" EntitySet="ImportDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImportDetail_Product" Association="QuanLyBanSachModel.FK_ImportDetail_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ImportDetail" EntitySet="ImportDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Payment" Association="QuanLyBanSachModel.FK_Order_Payment">
+      <End Role="Payment" EntitySet="Payments" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Order" Association="QuanLyBanSachModel.FK_OrderDetail_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Product" Association="QuanLyBanSachModel.FK_OrderDetail_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Supplier" Association="QuanLyBanSachModel.FK_Product_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Type" Association="QuanLyBanSachModel.FK_Product_Type">
+      <End Role="Topic" EntitySet="Topics" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Power" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="Orders" Relationship="QuanLyBanSachModel.FK_Order_Account" FromRole="Account" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Import">
+    <Key>
+      <PropertyRef Name="ImportID" />
+    </Key>
+    <Property Name="ImportID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Money" Type="Double" />
+    <Property Name="Supplier_ID" Type="Double" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="ImportDetails" Relationship="QuanLyBanSachModel.FK_ImportDetail_Import" FromRole="Import" ToRole="ImportDetail" />
+  </EntityType>
+  <EntityType Name="ImportDetail">
+    <Key>
+      <PropertyRef Name="ImportID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ImportID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Price_Import" Type="Double" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Money" Type="Double" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="Import" Relationship="QuanLyBanSachModel.FK_ImportDetail_Import" FromRole="ImportDetail" ToRole="Import" />
+    <NavigationProperty Name="Product" Relationship="QuanLyBanSachModel.FK_ImportDetail_Product" FromRole="ImportDetail" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AccountID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Pay_ID" Type="Int32" />
+    <Property Name="Name_Deceived" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address_Deceived" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone_Deceived" Type="Int32" />
+    <Property Name="Address_Pay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone_Pay" Type="Int32" />
+    <Property Name="SumMoney" Type="Double" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="Account" Relationship="QuanLyBanSachModel.FK_Order_Account" FromRole="Order" ToRole="Account" />
+    <NavigationProperty Name="Payment" Relationship="QuanLyBanSachModel.FK_Order_Payment" FromRole="Order" ToRole="Payment" />
+    <NavigationProperty Name="OrderDetails" Relationship="QuanLyBanSachModel.FK_OrderDetail_Order" FromRole="Order" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="OrderID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Price_Export" Type="Double" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Money" Type="Double" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="Order" Relationship="QuanLyBanSachModel.FK_OrderDetail_Order" FromRole="OrderDetail" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="QuanLyBanSachModel.FK_OrderDetail_Product" FromRole="OrderDetail" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PayID" />
+    </Key>
+    <Property Name="PayID" Type="Int32" Nullable="false" />
+    <Property Name="Pay_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="Orders" Relationship="QuanLyBanSachModel.FK_Order_Payment" FromRole="Payment" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TopicID" Type="Int32" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price_Import" Type="Double" />
+    <Property Name="Price_Export" Type="Double" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="IsNew" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="ImportDetails" Relationship="QuanLyBanSachModel.FK_ImportDetail_Product" FromRole="Product" ToRole="ImportDetail" />
+    <NavigationProperty Name="OrderDetails" Relationship="QuanLyBanSachModel.FK_OrderDetail_Product" FromRole="Product" ToRole="OrderDetail" />
+    <NavigationProperty Name="Supplier" Relationship="QuanLyBanSachModel.FK_Product_Supplier" FromRole="Product" ToRole="Supplier" />
+    <NavigationProperty Name="Topic" Relationship="QuanLyBanSachModel.FK_Product_Type" FromRole="Product" ToRole="Topic" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="Products" Relationship="QuanLyBanSachModel.FK_Product_Supplier" FromRole="Supplier" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Order_Account">
+    <End Type="QuanLyBanSachModel.Account" Role="Account" Multiplicity="0..1" />
+    <End Type="QuanLyBanSachModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImportDetail_Import">
+    <End Type="QuanLyBanSachModel.Import" Role="Import" Multiplicity="1" />
+    <End Type="QuanLyBanSachModel.ImportDetail" Role="ImportDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Import">
+        <PropertyRef Name="ImportID" />
+      </Principal>
+      <Dependent Role="ImportDetail">
+        <PropertyRef Name="ImportID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImportDetail_Product">
+    <End Type="QuanLyBanSachModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="QuanLyBanSachModel.ImportDetail" Role="ImportDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ImportDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Payment">
+    <End Type="QuanLyBanSachModel.Payment" Role="Payment" Multiplicity="0..1" />
+    <End Type="QuanLyBanSachModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="PayID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Pay_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Order">
+    <End Type="QuanLyBanSachModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="QuanLyBanSachModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Product">
+    <End Type="QuanLyBanSachModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="QuanLyBanSachModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Supplier">
+    <End Type="QuanLyBanSachModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+    <End Type="QuanLyBanSachModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Type">
+    <End Type="QuanLyBanSachModel.Topic" Role="Topic" Multiplicity="0..1" />
+    <End Type="QuanLyBanSachModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="TopicID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="TopicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
