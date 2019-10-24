@@ -15,7 +15,7 @@
 
 <form action="" method="get">
     <input type="text" name="Topic_Name" id="Topic_Name" placeholder="Nhập tên chủ đề" />
-    <input type="button" value="Tìm Kiếm" class="btn btn-primary" />
+    <button class="btn btn-primary">Tìm kiếm</button>
 </form>
 <table class="table table-bordered">
     <thead style="background-color: red; color: white">
@@ -35,4 +35,4 @@
         }
     </tbody>
 </table>
-@Html.PagedListPager(Model, page => Url.Action("Index", "TaiKhoan", search.SetInfoPaging(page)))
+@Html.PagedListPager(Model, page => Url.Action("Index", "Topic", search.SetInfoPaging(page)))
